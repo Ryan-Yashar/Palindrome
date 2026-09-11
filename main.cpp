@@ -9,7 +9,11 @@ char* stripNonAlphanumeric(char *readin) {
   int readoutptr = 0;
   for (int i = 0; readin[i] != '\0'; i++) {
     if ((readin[i] > 47 && readin[i] < 58) || (readin[i] > 64 && readin[i] < 91) || (readin[i] > 96 && readin[i] < 123)) {
-      readout[readoutptr] = readin[i];
+      if (readin[i] > 64 && readin[i] < 91) {
+	readout[readoutptr] = readin[i]+32;
+      } else {
+	readout[readoutptr] = readin[i];
+      }
       readoutptr += 1;
     }
   }
