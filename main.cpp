@@ -20,11 +20,12 @@ char* stripNonAlphanumeric(char *readin) {
 bool palindromeChecker(char *readin) {
   int endofreadin;
   for (endofreadin=0; readin[endofreadin] != '\0'; endofreadin++) {}
-  for (int startofreadin = 0; startofreadin < endofreadin && readin[startofreadin] == readin[endofreadin]; startofreadin++, endofreadin--) {}
-  if (sizeof(readin)/2 == endofreadin) {
+  int endptr = endofreadin-1;
+  for (int startptr = 0; startptr < endptr && readin[startptr] == readin[endptr]; startptr++, endptr--) {}
+  if ((endofreadin)/2 >= endptr) {
     return true;
   } else {
-    return false:
+    return false;
   }
 }
 
@@ -34,6 +35,11 @@ int main() {
   cin.get(readin, 81);
   readin = stripNonAlphanumeric(readin);
   delete[] readinptr;
-  cout << readin;
+  bool is_palindrome = palindromeChecker(readin);
+  if (is_palindrome) {
+    cout << "Is a palindrome.";
+  } else {
+    cout << "Not a palindrome.";
+  }
   return 0;
 }
