@@ -17,6 +17,17 @@ char* stripNonAlphanumeric(char *readin) {
   return readout;
 }
 
+bool palindromeChecker(char *readin) {
+  int endofreadin;
+  for (endofreadin=0; readin[endofreadin] != '\0'; endofreadin++) {}
+  for (int startofreadin = 0; startofreadin < endofreadin && readin[startofreadin] == readin[endofreadin]; startofreadin++, endofreadin--) {}
+  if (sizeof(readin)/2 == endofreadin) {
+    return true;
+  } else {
+    return false:
+  }
+}
+
 int main() {
   char *readin = new char[81];
   char *readinptr = readin;
